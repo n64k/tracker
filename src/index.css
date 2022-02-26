@@ -16,7 +16,7 @@
 .yellow .dot { background-color: var(--yellow) }
 .orange .dot { background-color: var(--orange) }
 .red    .dot { background-color: var(--red) }
-.blue 	.dot { background-color: var(--blue) }
+.blue   .dot { background-color: var(--blue) }
 .purple .dot { background-color: var(--purple) }
 .marker .dot { background-color: var(--marker) }
 
