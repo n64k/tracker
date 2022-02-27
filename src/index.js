@@ -23,8 +23,6 @@ let columns = 9
 let rows = 7 * 2
 
 class Grid extends React.Component {
-	
-	
 	constructor (props) {
 		super(props)
 		let grid = JSON.parse(localStorage.getItem("grid"))
@@ -32,7 +30,7 @@ class Grid extends React.Component {
 		if (!grid) {
 			grid = new Array(rows * columns).fill({
 				color: "empty",
-				bar: false
+				// bar: false
 			})
 		}
 			
@@ -46,12 +44,14 @@ class Grid extends React.Component {
 	nukeGrid() {
 		let emptyGrid = new Array(rows * columns).fill({
 			color: "empty",
-			bar: false
+			// bar: false
 		})
 		this.setState({
 			grid: emptyGrid
 		})
 		localStorage.setItem("grid", JSON.stringify(emptyGrid))
+		// Why doesn’t the below work as expected?
+		// localStorage.setItem("grid", JSON.stringify(this.state.grid))
 	}
 	
 	handleClick(i) {
@@ -104,6 +104,3 @@ ReactDOM.render(
 	<Grid />,
 	document.getElementById("root")
 )
-
-
-
