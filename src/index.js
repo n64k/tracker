@@ -22,10 +22,19 @@ class Grid extends React.Component {
 		
 		let grid = JSON.parse(localStorage.getItem("grid"))
 		if (!grid) {
-			grid = Array(rows * columns).fill({
+			// Why does doing "Array()" instead of "new Array()" fix things
+			// Okay nevermind that didn’t actually fix thingss
+{/* 			grid = Array(rows * columns).fill({
 				color: "empty",
 				// bar: false
-			})
+			}) */}
+			let foo = []
+			for (let i = 0; i < rows * columns; i++) {
+				foo.push({
+					color: "empty"
+				})
+			}
+			grid = foo
 		}
 			
 		this.state = {
