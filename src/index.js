@@ -1,10 +1,4 @@
-/*
- * Next steps
- * - Warning: Each child in a list should have a unique "key" prop
- * - Entire grid changing color even though indexes are correct
- * - - Fixed this, but the fix is troubling. Seems to hinge on
- * - - the nuke variable being set to false
- */
+
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -25,10 +19,10 @@ let rows = 7 * 2
 class Grid extends React.Component {
 	constructor (props) {
 		super(props)
+		
 		let grid = JSON.parse(localStorage.getItem("grid"))
-
 		if (!grid) {
-			grid = new Array(rows * columns).fill({
+			grid = Array(rows * columns).fill({
 				color: "empty",
 				// bar: false
 			})
@@ -42,10 +36,15 @@ class Grid extends React.Component {
 	}
 	
 	nukeGrid() {
-		let emptyGrid = new Array(rows * columns).fill({
+		// This code below seems to be the culprit. BUT WHY?
+{/* 		let emptyGrid = new Array(rows * columns).fill({
 			color: "empty",
 			// bar: false
-		})
+		}) */}
+		
+		let emptyGrid = this.state.grid
+		emptyGrid.forEach(e => e.color = "empty")
+		
 		this.setState({
 			grid: emptyGrid
 		})
