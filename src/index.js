@@ -28,6 +28,7 @@ class Grid extends React.Component {
 				color: "empty",
 				// bar: false
 			}) */}
+			
 			let foo = []
 			for (let i = 0; i < rows * columns; i++) {
 				foo.push({
@@ -51,6 +52,10 @@ class Grid extends React.Component {
 			// bar: false
 		}) */}
 		
+		// This seems to work too
+{/* 		let emptyGrid = this.state.grid.map(e => {
+			return {color: "empty"}
+		}) */}
 		let emptyGrid = this.state.grid
 		emptyGrid.forEach(e => e.color = "empty")
 		
