@@ -8,7 +8,12 @@ function Cell(props) {
 	return(
 		<div className={"cell " + props.value} onClick={props.onClick}>
 			<div className="dot"></div>
-			<div className="bar"></div>
+			
+			<div className="bar-container">
+			  <div className="bar-relative">
+				<div className="bar"></div>
+			  </div>
+			</div>
 		</div>
 	)
 }
@@ -23,6 +28,7 @@ class Grid extends React.Component {
 		
 		let grid = JSON.parse(localStorage.getItem("grid"))
 		if (!grid) {
+
 			let foo = []
 			for (let i = 0; i < rows * columns; i++) {
 				foo.push({

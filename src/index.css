@@ -64,6 +64,7 @@ button {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
         /* The visible part */
         .dot {
@@ -101,6 +102,40 @@ button {
             height: 40px;
             transition: width 50ms ease-out, height 50ms ease-out  
         }
+        
+        .bar-container {
+            position: absolute;
+            bottom: 0;
+            /*   width: calc(var(--cellSize) - ); */
+            width: var(--cellSize);
+            height: 12px;
+            padding: 2px 8px;
+            border: none;
+        }
+        .bar-container:active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: blue;
+            z-index: -1;
+        }
+            .bar-relative {
+                position: relative;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+            }
+                .bar {
+                    height: 100%;
+                    width: 100%;    
+               }
+                .bar-container:hover .bar {
+                    background-color: red;
+               }
+               
 
 .nuke {
     position: absolute;
