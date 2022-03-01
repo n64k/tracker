@@ -1,11 +1,11 @@
 :root {
-    --bg:       #FFFCF7;
+    --bg:     #FFFCF7;
     --empty : #FFF7E5;
     --marker: #FFEBC2;
     --darker: #996a08;
     --yellow: #FAE457;
     --orange: #FFBF59;
-    --red:      #FF8F9E;
+    --red:    #FF8F9E;
     --blue:   #8FE3FF;
     --purple: #DD99FF;
     
@@ -54,6 +54,14 @@ button {
     display: grid;
     grid-template-columns: repeat(9, var(--cellSize))
 }
+   
+   .grid * {
+      -webkit-user-select: none;  
+      -moz-user-select: none;    
+      -ms-user-select: none;      
+      user-select: none;
+   }
+   
     /* The actual clickable grid cell */
     .cell {
         width: 64px;
@@ -109,7 +117,7 @@ button {
             /*   width: calc(var(--cellSize) - ); */
             width: var(--cellSize);
             height: 12px;
-            padding: 2px 8px;
+            padding: 6px 8px 0 8px;
             border: none;
         }
             .bar-relative {
@@ -118,11 +126,13 @@ button {
                 width: 100%;
                 height: 100%;
             }
-                .bar {
-                    height: 100%;
-                    width: 100%;    
-                    border-radius: 99px;
-               }
+            .bar {
+               position: absolute;
+               bottom: -3px;
+               height: 100%;
+               width: 100%;    
+               border-radius: 99px;
+            }
                
                .bar.true {
                     background-color: var(--marker)
