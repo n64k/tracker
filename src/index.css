@@ -1,12 +1,12 @@
 :root {
-	--bg: 	  #FFFCF7;
-	--empty : #FFF7E5;
-	--marker: #FFEBC2;
+    --bg:       #FFFCF7;
+    --empty : #FFF7E5;
+    --marker: #FFEBC2;
     --darker: #996a08;
-	--yellow: #FAE457;
-	--orange: #FFBF59;
-	--red:	  #FF8F9E;
-	--blue:   #8FE3FF;
+    --yellow: #FAE457;
+    --orange: #FFBF59;
+    --red:      #FF8F9E;
+    --blue:   #8FE3FF;
     --purple: #DD99FF;
     
     --cellSize: 64px;
@@ -20,14 +20,14 @@
 .purple .dot { background-color: var(--purple) }
 .marker .dot { background-color: var(--marker) }
 
-.empty .dot	{ background-color: var(--empty) }
+.empty .dot    { background-color: var(--empty) }
 .empty:hover .dot {
-		background-color: var(--marker)
+        background-color: var(--marker)
 }
 
 
 body {
-	background-color: var(--bg);
+    background-color: var(--bg);
 /*     background-color: gray; */
     display: flex;
     margin: 64px;
@@ -41,9 +41,9 @@ body * {
 }
 
 button {
- 	border:none;
- 	background-color:transparent;
- 	outline:none;
+     border:none;
+     background-color:transparent;
+     outline:none;
 }
 
 .root {
@@ -56,14 +56,15 @@ button {
 }
     /* The actual clickable grid cell */
     .cell {
-	    width: 64px;
-	    height: 64px;
+        width: 64px;
+        height: 64px;
         padding: 0px;
         
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
         /* The visible part */
         .dot {
@@ -102,6 +103,35 @@ button {
             transition: width 50ms ease-out, height 50ms ease-out  
         }
         
+        .bar-container {
+            position: absolute;
+            bottom: 0;
+            /*   width: calc(var(--cellSize) - ); */
+            width: var(--cellSize);
+            height: 12px;
+            padding: 2px 8px;
+            border: none;
+        }
+            .bar-relative {
+                position: relative;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+            }
+                .bar {
+                    height: 100%;
+                    width: 100%;    
+                    border-radius: 99px;
+               }
+               
+               .bar.true {
+                    background-color: var(--marker)
+               }
+               
+                .bar-container:hover .bar.false {
+                    background-color: var(--empty)
+               }
+               
 
 .nuke {
     position: absolute;
