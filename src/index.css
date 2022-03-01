@@ -27,8 +27,8 @@
 
 
 body {
-	background-color: var(--bg);
-/*     background-color: gray; */
+/* 	background-color: var(--bg); */
+    background-color: gray;
     display: flex;
     margin: 64px;
     justify-content: center;
@@ -101,7 +101,6 @@ button {
             height: 40px;
             transition: width 50ms ease-out, height 50ms ease-out  
         }
-        
 
 .nuke {
     position: absolute;

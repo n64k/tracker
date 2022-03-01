@@ -8,6 +8,7 @@ function Cell(props) {
 	return(
 		<div className={"cell " + props.value} onClick={props.onClick}>
 			<div className="dot"></div>
+			<div className="bar"></div>
 		</div>
 	)
 }
@@ -22,13 +23,6 @@ class Grid extends React.Component {
 		
 		let grid = JSON.parse(localStorage.getItem("grid"))
 		if (!grid) {
-			// Why does doing "Array()" instead of "new Array()" fix things
-			// Okay nevermind that didn’t actually fix thingss
-{/* 			grid = Array(rows * columns).fill({
-				color: "empty",
-				// bar: false
-			}) */}
-			
 			let foo = []
 			for (let i = 0; i < rows * columns; i++) {
 				foo.push({
@@ -46,16 +40,6 @@ class Grid extends React.Component {
 	}
 	
 	nukeGrid() {
-		// This code below seems to be the culprit. BUT WHY?
-{/* 		let emptyGrid = new Array(rows * columns).fill({
-			color: "empty",
-			// bar: false
-		}) */}
-		
-		// This seems to work too
-{/* 		let emptyGrid = this.state.grid.map(e => {
-			return {color: "empty"}
-		}) */}
 		let emptyGrid = this.state.grid
 		emptyGrid.forEach(e => e.color = "empty")
 		
