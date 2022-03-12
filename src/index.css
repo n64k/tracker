@@ -1,8 +1,10 @@
+
+
 :root {
     --bg:     #FFFCF7;
     --empty : #FFF7E5;
     --marker: #FFEBC2;
-    --darker: #996a08;
+    --text:   #996a08;
     --yellow: #FAE457;
     --orange: #FFBF59;
     --red:    #FF8F9E;
@@ -12,6 +14,19 @@
     --cellSize: 64px;
 }
 
+@media (prefers-color-scheme: light) {
+   :root {
+      --bg:     hsl(248, 42%, 13%);
+      --empty : hsl(260, 52%, 23%);
+      --marker: hsl(270, 99%, 28%);
+      --text:   hsl(270, 100%, 84%);
+      --yellow: hsl(55, 95%, 59%);
+      --orange: hsl(31, 97%, 54%);
+      --red:    hsl(345, 100%, 56%);
+      --blue:   hsl(180, 100%, 56%);
+      --purple: hsl(280, 100%, 73%);
+   }
+}
 
 .yellow .dot { background-color: var(--yellow) }
 .orange .dot { background-color: var(--orange) }
@@ -20,9 +35,9 @@
 .purple .dot { background-color: var(--purple) }
 .marker .dot { background-color: var(--marker) }
 
-.empty .dot    { background-color: var(--empty) }
+.empty .dot  { background-color: var(--empty) }
 .empty:hover .dot {
-        background-color: var(--marker)
+     background-color: var(--marker)
 }
 
 
@@ -147,7 +162,7 @@ button {
     position: absolute;
     bottom: 0;
     right: 0;
-    color: var(--darker)
+    color: var(--text)   
 }
 .nuke:hover {
    color: var(--red)
